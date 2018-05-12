@@ -1,8 +1,8 @@
 # Me-Pagination
 Javascript分页
 
-## 使用示例
-> 通过js动态添加样式，class：pagination必须
+#### 使用示例
+> 通过Javascript进行分页
 
 ```html
 <body>
@@ -12,9 +12,10 @@ Javascript分页
 </body>
 ```
 ```js
+<script>
 pagination({
 	selector: '#page', // 选取的DOM
-	totalPage: 30, // 总页数
+	totalPage: 10, // 总页数(可以从后台返回的记录总条数作为参数)
 	currentPage: 1, // 当前页	默认第一页
 	prev: '上一页', // 上一页 不传则为 <
 	next: '下一页', // 下一页 不传则为 >
@@ -34,9 +35,10 @@ pagination({
 			page: pageVal	// 接收到返回的 当前页(第几页) 放入data中进行ajax请求
 		},
 		cache: false,
-		success: function (msg) {
-			console.log(msg)
+		success: function (data) {
+			console.log(data)
 			// 指定页的数据处理...
 		}
 	})  
 })
+</script>
